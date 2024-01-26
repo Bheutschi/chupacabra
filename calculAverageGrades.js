@@ -2,12 +2,7 @@ function calculAverageGrades(grades) {
     if (grades.length === 0) {
         return 0;
     }
-
-    let sum = 0;
-    for (let i = 0; i < grades.length; i++) {
-        sum += grades[i];
-    }
-
+    const sum = grades.reduce((acc, note) => acc + note, 0);
     return sum / grades.length;
 }
 module.exports = calculAverageGrades;
