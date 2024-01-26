@@ -8,6 +8,6 @@ function calculAverageGrades(grades) {
         sum += grades[i];
     }
 
-    return sum / grades.length;
+    return sum ;
 }
 module.exports = calculAverageGrades;
