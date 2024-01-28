@@ -1,6 +1,7 @@
 function calculAverageGrades(grades) {
     if (!grades || grades.length === 0) {
-        return 1;
+        return handleEmptyGrades();
+
     }
 
     if (hasInvalidGrades(grades)) {
@@ -13,6 +14,9 @@ function calculAverageGrades(grades) {
     const average = calculateAverage(adjustedGrades);
 
     return average;
+}
+function handleEmptyGrades() {
+    return 1;
 }
 
 function hasInvalidGrades(grades) {
