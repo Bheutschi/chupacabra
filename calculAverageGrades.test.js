@@ -16,3 +16,9 @@ test("When a grade is more than 6 should return the error answer", () => {
     const average = calculAverageGrades(grades);
     expect(average).toMatch("You shouldn't put a grade more than 6");
 });
+
+test('Calculate average with null grades should return 0', () => {
+    const grades = null;
+    const average = calculAverageGrades(grades);
+    expect(average).toBe(1);
+});
