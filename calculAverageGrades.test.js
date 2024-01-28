@@ -10,3 +10,9 @@ test('Calculates average  with negative grades should return 1', () => {
     const average = calculAverageGrades(grades);
     expect(average).toBe(1);
 });
+
+test("When a grade is more than 6 should return the error answer", () => {
+    const grades = [7];
+    const average = calculAverageGrades(grades);
+    expect(average).toMatch("You shouldn't put a grade more than 6");
+});
