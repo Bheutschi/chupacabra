@@ -28,3 +28,9 @@ test('Calculate average with non-numeric grades should return 1', () => {
     const average = calculAverageGrades(grades);
     expect(average).toBe(1);
 });
+
+test('Calculate average with decimal grades should round to the nearest integer', () => {
+    const grades = [2.5, 3.6, 4.8];
+    const average = calculAverageGrades(grades);
+    expect(average).toBe(3.5);
+});
