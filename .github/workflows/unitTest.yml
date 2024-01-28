@@ -33,6 +33,3 @@ jobs:
 
       - name: Run Tests
         run: npm test
-
-      - name: Run a one-line script
-        run: npm test
