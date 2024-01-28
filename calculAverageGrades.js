@@ -1,21 +1,30 @@
-// calculMoyenne.js
 function calculAverageGrades(grades) {
     if (grades.length === 0) {
         return 0;
     }
 
-    for (let i = 0; i < grades.length; i++) {
-        const grade = grades[i];
-
-        if (grade > 6) {
-            console.warn("You shouldn't put a grade more than 6");
-            return "You shouldn't put a grade more than 6";
-        }
+    if (hasInvalidGrades(grades)) {
+        const errorMessage = "You shouldn't put a grade more than 6";
+        console.warn(errorMessage);
+        return errorMessage;
     }
 
-    const adjustedGrades = grades.map(grade => (grade < 0 ? 1 : grade));
+    const adjustedGrades = adjustGrades(grades);
+    const average = calculateAverage(adjustedGrades);
 
-    const sum = adjustedGrades.reduce((acc, note) => acc + note, 0);
+    return average;
+}
+
+function hasInvalidGrades(grades) {
+    return grades.some(grade => grade > 6);
+}
+
+function adjustGrades(grades) {
+    return grades.map(grade => (grade < 0 ? 1 : grade));
+}
+
+function calculateAverage(grades) {
+    const sum = grades.reduce((acc, note) => acc + note, 0);
     return sum / grades.length;
 }
 
