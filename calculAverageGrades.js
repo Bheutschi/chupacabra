@@ -1,6 +1,6 @@
 function calculAverageGrades(grades) {
-    if (grades.length === 0) {
-        return 0;
+    if (!grades || grades.length === 0) {
+        return 1;
     }
 
     if (hasInvalidGrades(grades)) {
