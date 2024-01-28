@@ -1,7 +1,6 @@
 function calculAverageGrades(grades) {
-    if (!grades || grades.length === 0) {
-        return handleEmptyGrades();
-
+    if (!grades || grades.length === 0 || !areNumericGrades(grades)) {
+        return 1;
     }
 
     if (hasInvalidGrades(grades)) {
@@ -15,6 +14,15 @@ function calculAverageGrades(grades) {
 
     return average;
 }
+
+function areNumericGrades(grades) {
+    return grades.filter(grade => {
+        const isNumeric = typeof grade === 'number';
+        return isNumeric && (grade % 1 === 0) && !isNaN(grade);
+    }).length === grades.length;
+}
+
+
 function handleEmptyGrades() {
     return 1;
 }
