@@ -16,12 +16,8 @@ function calculAverageGrades(grades) {
 }
 
 function areNumericGrades(grades) {
-    return grades.filter(grade => {
-        const isNumeric = typeof grade === 'number';
-        return isNumeric && (grade % 1 === 0) && !isNaN(grade);
-    }).length === grades.length;
+    return grades.every(grade => typeof grade === 'number'); // Ajout : Vérifie si toutes les notes sont numériques
 }
-
 
 function handleEmptyGrades() {
     return 1;
