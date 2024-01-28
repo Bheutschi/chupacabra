@@ -15,8 +15,13 @@ function calculAverageGrades(grades) {
     return average;
 }
 
+function roundGrades(grades) {
+    return  Math.round(grades * 2) / 2;
+}
+
+
 function areNumericGrades(grades) {
-    return grades.every(grade => typeof grade === 'number'); // Ajout : Vérifie si toutes les notes sont numériques
+    return grades.every(grade => typeof grade === 'number');
 }
 
 function handleEmptyGrades() {
@@ -33,7 +38,7 @@ function adjustGrades(grades) {
 
 function calculateAverage(grades) {
     const sum = grades.reduce((acc, note) => acc + note, 0);
-    return sum / grades.length;
+    return roundGrades(sum / grades.length);
 }
 
 module.exports = calculAverageGrades;
